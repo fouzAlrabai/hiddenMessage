@@ -91,6 +91,7 @@ public class decryptPage extends AppCompatActivity {
                 if( keSort[j]== ke[i] ){
                     String n = j+1+"";
                     plain[1][i]=n.charAt(0);
+
                 }
             }
 
@@ -101,6 +102,7 @@ public class decryptPage extends AppCompatActivity {
                 if(index < userText.length()) {
                   //  System.out.println(rowNum+"row");
                     plain[i][j]=userText.charAt(index);
+
                    // System.out.println("infd"+index);
                   //  System.out.println(userText.charAt(index)+"c");
                   //  System.out.println(""+plain[i][j]);
@@ -145,12 +147,19 @@ public class decryptPage extends AppCompatActivity {
         int mod1=userText.length()%colNum;
        // System.out.println("Mod*************************88"+mod1);
        // System.out.println("Mod*****ROW***************88"+rowNum);
-        if(mod1 == 0)
+
             loopsize =rowNum;
-        else
-            loopsize=rowNum-1;
+
         //	for(int i =2;i<rowNum;i++) {
         //System.out.println("row "+i);
+        int q =2;
+       // if(colNum -mod1 != 0){
+
+              //  encrypted[5][5]='*';
+           // encrypted[5][4]='*';
+         //   mod1=mod1-2;
+
+      //  }
         for (int j=0;j<key.length();j++ ) {
             // System.out.println("col "+plain[i][j]);
             if(index < userText.length()) {
@@ -160,11 +169,28 @@ public class decryptPage extends AppCompatActivity {
                   //  System.out.println("real = "+encrypted[1][k]);
                     if( x == f) {
                        // System.out.println("inside if for de ");
-                        for(int q =2;q<rowNum;q++) {
-                            if(index<userText.length())
+                       // if(mod1 != 0 )
+                         //   loopsize-=1;
+                       /* int where = 0;
+                        if(mod1 > 0 &&  k+1 == encrypted[1][where]){
+                            encrypted[q+1][k]=userText.charAt(index);
+                            index++;
+                            mod1 --;
+                        }*/
+
+                        for(q =2;q<loopsize;q++) {
+
+                            if(index<userText.length()  ){
                                 encrypted[q][k]=userText.charAt(index);
                             index++;
+
+
+                            }
+
+                            //this to make sure
+
                         }
+
                         //text.replace(text.charAt(index), ' ');
                         //if(index+1<text.length() && i+1<rowNum) {
                         //encrypted[i+1][k]=text.charAt(index+1);
@@ -184,7 +210,7 @@ public class decryptPage extends AppCompatActivity {
 
 
         }
-       // plain.setText();
+
         plain1.setText(plainT);
 
     }
