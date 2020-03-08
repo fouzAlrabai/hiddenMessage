@@ -36,6 +36,8 @@ public class encryptPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userText =mMess.getText().toString();
+                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                System.out.println(userText);
                 key=mKey.getText().toString();
 
                 //check fields
@@ -65,24 +67,11 @@ public class encryptPage extends AppCompatActivity {
     }
 
     public void encrypt(String userText,String key){
-
         colNum=key.length();
         mod =userText.length()%colNum;
-        if(mod !=0){
-        int stars = key.length()-mod;
+        rowNum=(userText.length()/colNum)+2+(mod);
 
-        if(stars!= 0){
-            for(int i =0;i<stars;i++){
-                userText = userText+"*";
-            }
-        }
-        }
-        rowNum=(userText.length()/colNum)+2;
-
-
-
-
-
+        System.out.println(rowNum);
         char[][]plain=new char[rowNum+2][colNum];
         //to put key at first row
         for(int i =0;i<key.length();i++) {
@@ -107,46 +96,44 @@ public class encryptPage extends AppCompatActivity {
             }
 
         }
-
         int index =0;
         for(int i =2;i<rowNum;i++) {
             for (int j=0;j<key.length();j++ ) {
                 if(index < userText.length()) {
-                   // System.out.println(rowNum+"row");
-                //    plain[i][j]=userText.charAt(index);
-                    //System.out.println("infd"+index);
-                  //  System.out.println(userText.charAt(index)+"The Leater is");
-                    //System.out.println(""+plain[i][j]);
+                    System.out.println(rowNum+"row");
+                    plain[i][j]=userText.charAt(index);
+                    System.out.println("infd"+index);
+                    System.out.println(userText.charAt(index)+"c");
+                    System.out.println(""+plain[i][j]);
                     index++;
 
                 }
-
                 //else if(index == userText.length()) {
                 // plain[i][j]='-';
                 // }
 
             }
         }
-
-        //to encrypt
+        //to encrupt
         String ciphir="";
         index =0;
         int h=49;
         for(int i =2;i<rowNum;i++) {
-           // System.out.println("row "+i);
+            System.out.println("row "+i);
             for (int j=0;j<key.length();j++ ) {
-               // System.out.println("col "+plain[i][j]);
+                System.out.println("col "+plain[i][j]);
                 if(index < userText.length()) {
                     for(int k=0;k<key.length();k++) {
                         int x =plain[1][k];
-                       // System.out.println("x = "+x);
-                      //  System.out.println("real = "+plain[1][k]);
+                        System.out.println("x = "+x);
+                        System.out.println("real = "+plain[1][k]);
                         if( x == h) {
-                    //        System.out.println("inside if ");
-                      //      System.out.println("ROWNUMBER"+rowNum);
+                            System.out.println("inside if ");
                             for(int w=2;w<rowNum;w++)
                                 ciphir=ciphir+plain[w][k];
+                            //ciphir=ciphir+plain[i][k];
 
+                            //ciphir=ciphir+plain[i+1][k];
                             index++;
                             h++;
                         }
@@ -155,6 +142,7 @@ public class encryptPage extends AppCompatActivity {
             }
         }
 
+        System.out.println(ciphir+"");
         cipher.setText(ciphir);
 
     }

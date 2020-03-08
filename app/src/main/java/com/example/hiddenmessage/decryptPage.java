@@ -210,7 +210,7 @@ public class decryptPage extends AppCompatActivity {
 
 
         }
-
+        System.out.println(plainT+"");
         plain1.setText(plainT);
 
     }
