@@ -104,7 +104,7 @@ if(mod != 0)
                 if(index < userText.length()) {
                   //  System.out.println(rowNum+"row");
                     plain[i][j]=userText.charAt(index);
-
+//hidden
                    // System.out.println("infd"+index);
                   //  System.out.println(userText.charAt(index)+"c");
                   //  System.out.println(""+plain[i][j]);
