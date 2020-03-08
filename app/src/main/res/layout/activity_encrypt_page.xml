@@ -96,7 +96,7 @@
             android:layout_height="50dp"
             android:background="@drawable/custom_text"
             android:ems="10"
-            android:hint="   Key"
+            android:hint="Key"
             android:inputType="text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -160,7 +160,8 @@
             app:layout_constraintVertical_bias="0.05"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:padding="20dp"/>
+            android:paddingTop="20dp"
+            android:paddingLeft="10dp"/>
 
 
     </LinearLayout>
