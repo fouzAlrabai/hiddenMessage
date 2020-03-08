@@ -67,9 +67,20 @@ public class encryptPage extends AppCompatActivity {
     }
 
     public void encrypt(String userText,String key){
+        int stars=0;
         colNum=key.length();
         mod =userText.length()%colNum;
-        rowNum=(userText.length()/colNum)+2+(mod);
+        rowNum=(userText.length()/colNum)+2;
+        if(mod != 0 ){
+            rowNum++;
+            stars=key.length()-mod;
+            if(stars != 0){
+                for(int i =0;i<stars;i++){
+                    userText=userText+" ";
+                }
+            }
+        }
+
 
         System.out.println(rowNum);
         char[][]plain=new char[rowNum+2][colNum];
@@ -114,7 +125,7 @@ public class encryptPage extends AppCompatActivity {
 
             }
         }
-        //to encrupt
+        //to encrypt
         String ciphir="";
         index =0;
         int h=49;

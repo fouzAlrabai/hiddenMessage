@@ -68,8 +68,10 @@ public class decryptPage extends AppCompatActivity {
         //first is row then col
         colNum=key.length();
         mod =userText.length()%colNum;
-        rowNum=(userText.length()/colNum)+2+(mod);
 
+        rowNum=(userText.length()/colNum)+2;
+if(mod != 0)
+    rowNum++;
         System.out.println(rowNum);
         char[][]plain=new char[rowNum+2][colNum];
         //to put key at first row
